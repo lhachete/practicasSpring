@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mi_base_de_datos
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: 12345678
+    ports:
+      - "3330:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
+# Para crear la tabla de pruebas de usuario
+
+#  use mi_base_de_datos;
+#
+#  CREATE TABLE users (
+#  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+#  first_name VARCHAR(255) NOT NULL,
+#  last_name VARCHAR(255) NOT NULL,
+#  email VARCHAR(255) NOT NULL UNIQUE
+#  );
+
